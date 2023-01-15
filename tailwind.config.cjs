@@ -7,13 +7,12 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "scr-1400-more": { min: "140rem" }, //@media (min-width: 1400px) { ... }
-        "scr-1400-less": { max: "140rem" }, //@media (max-width: 1400px) { ... }
-        "scr-1200-less": { max: "120rem" },
-        "scr-1000-less": { max: "100rem" },
-        "scr-800-less": { max: "80rem" },
-        "scr-600-less": { max: "60rem" },
-        "scr-400-less": { max: "40rem" },
+        "scr-1280-more": { min: "1280px" }, //@media (min-width: 1280px) { ... }
+        "scr-1280-less": { max: "1280px" }, //@media (max-width: 1280px) { ... }
+        "scr-1000-less": { max: "1000px" },
+        "scr-800-less": { max: "800px" },
+        "scr-600-less": { max: "600px" },
+        "scr-400-less": { max: "400px" },
       },
     },
   },
