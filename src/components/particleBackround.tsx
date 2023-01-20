@@ -17,7 +17,7 @@ function ParticleBackground({
 
   return (
     <Particles
-      className="z-0"
+      className="particles"
       id="tsparticles"
       // url="http://foo.bar/particles.json"
       init={particlesInit}

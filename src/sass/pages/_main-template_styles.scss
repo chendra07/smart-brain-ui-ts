@@ -1,0 +1,13 @@
+.tmp {
+  max-width: 120rem;
+  min-height: 200vh;
+  margin: 4rem auto;
+  background-color: var(--color-grey-light-3);
+  box-shadow: var(--shadow-dark);
+  border-radius: var(--default-border-radius);
+  padding: 10px;
+
+  &__content {
+    display: flex;
+  }
+}

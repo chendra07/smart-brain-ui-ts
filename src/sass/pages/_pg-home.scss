@@ -1,0 +1,8 @@
+.pg-home {
+  flex: 1;
+
+  &__option-container {
+    display: flex;
+    flex-direction: row;
+  }
+}

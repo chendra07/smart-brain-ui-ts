@@ -7,7 +7,9 @@ export default function App() {
   return (
     <>
       <ParticleBackground />
-      <RouterConfig />
+      <div style={{ position: "relative" }}>
+        <RouterConfig />
+      </div>
     </>
   );
 }

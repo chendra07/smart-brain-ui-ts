@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; //1 rem = 10px
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before *::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-primary-1),
+    var(--color-grey-light-3)
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a,
+a:visited,
+a:link {
+  text-decoration: none;
+}
+
+button {
+  box-shadow: none;
+  border: none;
+}
