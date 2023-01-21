@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
 //redux
 import { RootState } from "../redux/store";
@@ -17,5 +18,10 @@ export default function PgHome() {
     });
   }, []);
 
-  return <div></div>;
+  //Navigate to auth if user not logged in yet
+  // if (true) {
+  //   return <Navigate to="/auth" />;
+  // }
+
+  return <div>HOME</div>;
 }

@@ -1,6 +1,5 @@
-import Button from "./btn";
-import BtnLink from "./btnLink";
 import Card from "./card";
+import Warning from "./warning";
 import ParticleBackground from "./particleBackround";
 
-export { Button, BtnLink, Card, ParticleBackground };
+export { Card, Warning, ParticleBackground };
