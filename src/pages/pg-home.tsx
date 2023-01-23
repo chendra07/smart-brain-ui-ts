@@ -4,24 +4,19 @@ import { Navigate } from "react-router-dom";
 //redux
 import { RootState } from "../redux/store";
 import { useSelector, useDispatch } from "react-redux";
-import { storeFlightData } from "../redux/slices/flight.slice";
-import { decrement, increment } from "../redux/slices/counter.slice";
 
-//requests
-import { httpgetAllFlight } from "../requests/flight";
+import { deleteUser } from "../redux/slices/user.slice";
+import Card from "../components/card";
 
 export default function PgHome() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    httpgetAllFlight().then((data) => {
-      dispatch(storeFlightData(data));
-    });
-  }, []);
+  const userData = useSelector((state: RootState) => state.user);
 
-  //Navigate to auth if user not logged in yet
-  // if (true) {
-  //   return <Navigate to="/auth" />;
-  // }
-
-  return <div>HOME</div>;
+  return (
+    <div className="pg-home">
+      <Card.Container>
+        <p>Test</p>
+      </Card.Container>
+    </div>
+  );
 }

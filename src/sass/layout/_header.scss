@@ -1,0 +1,28 @@
+.header {
+  &__header-img-container {
+    width: 5rem;
+    height: 5rem;
+    // background-color: red;
+    border-radius: 50%;
+    border: 3px black solid;
+    margin-right: 0.5rem;
+  }
+
+  &__header-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.nav-links {
+  display: inline-block;
+  height: 40px;
+  background-color: white; /*will change background-color of element */
+  color: grey; /*will change color of text within the element */
+}
+
+.nav-links:hover {
+  background-color: grey; /*will change background-color of element on hover */
+  color: white; /*will change color of text within the element on hover */
+}

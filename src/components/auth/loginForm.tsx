@@ -1,22 +1,19 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
-import { Warning } from "..";
+import { toast } from "react-hot-toast";
 
 type LoginFormType = {
-  passInput: (value: { email: string; password: string }) => void;
+  loginInput: (value: { email: string; password: string }) => void;
   isLoading: boolean;
 };
 
 //email, password
-export default function LoginForm({ passInput, isLoading }: LoginFormType) {
+export default function LoginForm({ loginInput, isLoading }: LoginFormType) {
   const [loginData, setloginData] = useState({
     email: "",
     password: "",
   });
-
-  const [isValidPass, setisValidPass] = useState(true);
 
   const regexCfgList = [
     "(?=.*[0-9])", //1 number
@@ -37,13 +34,12 @@ export default function LoginForm({ passInput, isLoading }: LoginFormType) {
 
   function handleSubmit() {
     if (!loginData.password.match(combinedRegex)) {
-      setisValidPass(false);
+      toast.error(
+        "password must contain 1 lowercase, 1 uppercase, 1 symbol, and 1 number"
+      );
       return;
     }
-
-    setisValidPass(true);
-    passInput(loginData);
-    setloginData({ email: "", password: "" }); //reset form
+    loginInput(loginData);
   }
 
   return (
@@ -78,11 +74,6 @@ export default function LoginForm({ passInput, isLoading }: LoginFormType) {
           required
         />
       </Form.Group>
-      {!isValidPass && (
-        <Warning.Alert>
-          Password must have 1 lowercase, 1 uppercase, 1 symbol, and 1 number!
-        </Warning.Alert>
-      )}
       {isLoading ? (
         <div className="spinner-border align-self-center m-3" role="status">
           <span className="sr-only"></span>

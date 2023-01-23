@@ -2,18 +2,18 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import { counterSliceReducer } from "./slices/counter.slice";
-import { flightSliceReducer } from "./slices/flight.slice";
+import { userSliceReducer } from "./slices/user.slice";
+// import { historySliceReducer  } from "./slices/history.slice";
 
 const rootReducers = combineReducers({
-  counter: counterSliceReducer,
-  flight: flightSliceReducer,
+  user: userSliceReducer,
+  // history: historySliceReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["counter"],
+  whitelist: ["user"],
 };
 
 export const persistedReducer = persistReducer(persistConfig, rootReducers);

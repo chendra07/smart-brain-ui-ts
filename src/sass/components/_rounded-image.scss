@@ -1,0 +1,11 @@
+.rounded-image {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  display: block;
+  margin: 4rem auto;
+
+  &__rounded {
+    border-radius: 50%;
+  }
+}

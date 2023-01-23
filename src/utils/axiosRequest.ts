@@ -29,9 +29,8 @@ function generateQueryParams(request: object) {
 
 //zod used for validation when using axios
 const zodAxiosSchema = z.object({
-  statusCode: z.number().gt(0, "invalid status code"),
   message: z.string(),
-  data: z.unknown().nullable(),
+  data: z.any().nullable(),
 });
 
 const zodAxiosConfig = z.object({
@@ -55,9 +54,9 @@ type AxiosConfig = z.infer<typeof zodAxiosConfig>;
 function axiosPromise(axiosConfig: AxiosConfig) {
   return new Promise<AxiosSchema>((resolve, reject) => {
     axios(axiosConfig)
-      .then((resp: unknown) => {
+      .then((resp: any) => {
         //[uncomment this code after define the zodAxiosSchema and AxiosSchema]
-        const respValidation = zodAxiosSchema.safeParse(resp);
+        const respValidation = zodAxiosSchema.safeParse(resp.data);
 
         //validating object from axios using zod
         if (!respValidation.success) {
@@ -70,7 +69,11 @@ function axiosPromise(axiosConfig: AxiosConfig) {
         return resolve(resp as AxiosSchema);
       })
       .catch((error) => {
-        return reject(`(${axiosConfig.method.toUpperCase()}): ${error}`);
+        return reject(
+          `(${axiosConfig.method.toUpperCase()}): ${
+            error.response.data.message
+          }`
+        );
       });
   });
 }
@@ -89,7 +92,7 @@ async function Get(
 
   const getAxiosConfig: AxiosConfig = {
     method: "get",
-    baseURL: baseUrl ?? process.env.REACT_APP_API_URL!,
+    baseURL: baseUrl ?? import.meta.env.VITE_API_URL!,
     url: `${path}?${queryParams.join("&") || ""}`,
     headers,
   };
@@ -113,7 +116,7 @@ async function Post(
 
   const postAxiosConfig: AxiosConfig = {
     method: "post",
-    baseURL: baseUrl ?? process.env.REACT_APP_API_URL!,
+    baseURL: baseUrl ?? import.meta.env.VITE_API_URL!,
     url: `${path}?${queryParams.join("&") || ""}`,
     data: sendData,
     headers,
@@ -138,7 +141,7 @@ async function Put(
 
   const putAxiosConfig: AxiosConfig = {
     method: "put",
-    baseURL: baseUrl ?? process.env.REACT_APP_API_URL!,
+    baseURL: baseUrl ?? import.meta.env.VITE_API_URL!,
     url: `${path}?${queryParams.join("&") || ""}`,
     data: sendData,
     headers,
@@ -163,7 +166,7 @@ async function Delete(
 
   const deleteAxiosConfig: AxiosConfig = {
     method: "delete",
-    baseURL: baseUrl ?? process.env.REACT_APP_API_URL!,
+    baseURL: baseUrl ?? import.meta.env.VITE_API_URL!,
     url: `${path}?${queryParams.join("&") || ""}`,
     headers,
   };
