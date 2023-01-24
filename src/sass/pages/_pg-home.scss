@@ -1,8 +1,9 @@
 .pg-home {
+  flex: 1;
   display: flex;
-  min-height: 90vh;
+  min-height: 80vh;
   position: relative;
   align-items: center;
   justify-content: center;
-  background-color: brown;
+  // background-color: brown;
 }

@@ -18,11 +18,11 @@
 .nav-links {
   display: inline-block;
   height: 40px;
-  background-color: white; /*will change background-color of element */
-  color: grey; /*will change color of text within the element */
+  background-color: white;
+  color: grey;
 }
 
 .nav-links:hover {
-  background-color: grey; /*will change background-color of element on hover */
-  color: white; /*will change color of text within the element on hover */
+  background-color: grey;
+  color: white;
 }

@@ -50,8 +50,6 @@ export default function PgAuth() {
     password: string;
     image64: string;
   }) {
-    console.log(import.meta.env.VITE_API_URL);
-
     setisLoading(true);
     await httpPostRegister(data)
       .then((response) => {

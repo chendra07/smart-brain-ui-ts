@@ -8842,15 +8842,11 @@ body {
   display: inline-block;
   height: 40px;
   background-color: white;
-  /*will change background-color of element */
-  color: grey;
-  /*will change color of text within the element */ }
+  color: grey; }
 
 .nav-links:hover {
   background-color: grey;
-  /*will change background-color of element on hover */
-  color: white;
-  /*will change color of text within the element on hover */ }
+  color: white; }
 
 .tmp {
   max-width: 120rem;
@@ -8868,12 +8864,12 @@ body {
   height: 3rem; }
 
 .pg-home {
+  flex: 1;
   display: flex;
-  min-height: 90vh;
+  min-height: 80vh;
   position: relative;
   align-items: center;
-  justify-content: center;
-  background-color: brown; }
+  justify-content: center; }
 
 .pg-auth {
   display: flex;
